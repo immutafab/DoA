@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.6+commit.11564f7e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -748,29 +748,6 @@
 			}
 		],
 		"devdoc": {
-			"events": {
-				"Approval(address,address,uint256)": {
-					"details": "Emitted when `owner` enables `approved` to manage the `tokenId` token."
-				},
-				"ApprovalForAll(address,address,bool)": {
-					"details": "Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets."
-				},
-				"DelegateChanged(address,address,address)": {
-					"details": "Emitted when an account changes their delegate."
-				},
-				"DelegateVotesChanged(address,uint256,uint256)": {
-					"details": "Emitted when a token transfer or delegate change results in changes to a delegate's number of votes."
-				},
-				"Paused(address)": {
-					"details": "Emitted when the pause is triggered by `account`."
-				},
-				"Transfer(address,address,uint256)": {
-					"details": "Emitted when `tokenId` token is transferred from `from` to `to`."
-				},
-				"Unpaused(address)": {
-					"details": "Emitted when the pause is lifted by `account`."
-				}
-			},
 			"kind": "dev",
 			"methods": {
 				"DOMAIN_SEPARATOR()": {
@@ -867,7 +844,7 @@
 		"compilationTarget": {
 			"DoANFT.sol": "DoA"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "berlin",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -1088,11 +1065,11 @@
 			]
 		},
 		"DoANFT.sol": {
-			"keccak256": "0x31e2111ac0181f482b4947d676886951451e85b0e6fc89a31119329645cdf5c3",
+			"keccak256": "0x03c8f0764a7b8673e2ce869c082a7257b411680e3d57aa9b127f3c10dccbb016",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f310c88d0230320e44ab25ec6ef46050d5b9d380f991dc21b2b0299a188d78e8",
-				"dweb:/ipfs/QmapWYcTZTioLvXZZKoAKqg3BmrVedCqXkLrEHg6MNWQyx"
+				"bzz-raw://0afd5035d64579df35d5d9c93817caf4e17c65a950403c9b100b5cfd62eda399",
+				"dweb:/ipfs/QmXyg9GBpT7vZY8oaNZZNMyepyxFSKbSjK2LijHqEoLEfd"
 			]
 		}
 	},
