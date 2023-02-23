@@ -420,6 +420,13 @@
 			},
 			{
 				"inputs": [],
+				"name": "mintHeros",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "name",
 				"outputs": [
 					{
@@ -735,6 +742,13 @@
 					}
 				],
 				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unlock1stPublicRound",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1065,11 +1079,11 @@
 			]
 		},
 		"DoANFT.sol": {
-			"keccak256": "0x25ca86b800eae9ea79b5668d64f37c0fdf2b737d3070d2ac17375e2b7ccc3e26",
+			"keccak256": "0x34799e516d2a3c787bfafa9172fe7b3c27e801f99050492bf5b256bd256796da",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2eda128f94ab96b46535c36c5fbd9d0d200eced2d077ba6e6ceb3e679ee4d625",
-				"dweb:/ipfs/QmcuzNeQvoFpu3B1p6BUuSMdBsJhJKkAmKZxpfKsm5TC1H"
+				"bzz-raw://195007ed824ad0bf3641e17dd183f23ff209a96670f7e08096c4af843d1cdf49",
+				"dweb:/ipfs/QmeK8KFrpY69TXfAvrqDyM8W7wEnpSwNmBNvouxcugvzF5"
 			]
 		}
 	},
