@@ -1079,11 +1079,11 @@
 			]
 		},
 		"DoANFT.sol": {
-			"keccak256": "0x34799e516d2a3c787bfafa9172fe7b3c27e801f99050492bf5b256bd256796da",
+			"keccak256": "0x6d09504e620e371edf3c58c3fa1e0aa8eb0591330a5d16e7e5279c73ab1951c6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://195007ed824ad0bf3641e17dd183f23ff209a96670f7e08096c4af843d1cdf49",
-				"dweb:/ipfs/QmeK8KFrpY69TXfAvrqDyM8W7wEnpSwNmBNvouxcugvzF5"
+				"bzz-raw://20e721b24c24b4bc209268e88a4f3757dd2247e8902e0f6ed58451c25d9ba5a8",
+				"dweb:/ipfs/QmfMhnvfemVesr5EQCjxzY3Z8JBcziMAZmCDXs8rffyMkR"
 			]
 		}
 	},
