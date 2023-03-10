@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.6+commit.11564f7e"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -66,56 +66,6 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "delegator",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "fromDelegate",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "toDelegate",
-						"type": "address"
-					}
-				],
-				"name": "DelegateChanged",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "delegate",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "previousBalance",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "newBalance",
-						"type": "uint256"
-					}
-				],
-				"name": "DelegateVotesChanged",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
 						"name": "previousOwner",
 						"type": "address"
 					},
@@ -127,19 +77,6 @@
 					}
 				],
 				"name": "OwnershipTransferred",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "Paused",
 				"type": "event"
 			},
 			{
@@ -168,41 +105,15 @@
 				"type": "event"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "Unpaused",
-				"type": "event"
-			},
-			{
-				"inputs": [],
-				"name": "DOMAIN_SEPARATOR",
-				"outputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "_approved",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "_tokenId",
 						"type": "uint256"
 					}
 				],
@@ -223,11 +134,24 @@
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "balance",
 						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "tokenIds",
+						"type": "uint256[]"
+					}
+				],
+				"name": "batchBurn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -246,78 +170,8 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "delegatee",
-						"type": "address"
-					}
-				],
-				"name": "delegate",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "delegatee",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
-						"name": "nonce",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "expiry",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "v",
-						"type": "uint8"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "r",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "s",
-						"type": "bytes32"
-					}
-				],
-				"name": "delegateBySig",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "delegates",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "_tokenId",
 						"type": "uint256"
 					}
 				],
@@ -335,75 +189,13 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "blockNumber",
-						"type": "uint256"
-					}
-				],
-				"name": "getPastTotalSupply",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "blockNumber",
-						"type": "uint256"
-					}
-				],
-				"name": "getPastVotes",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "getVotes",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "owner",
+						"name": "_owner",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "operator",
+						"name": "_operator",
 						"type": "address"
 					}
 				],
@@ -419,7 +211,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
 				"name": "mintHeros",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -442,19 +240,34 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "owner",
+						"name": "operator",
 						"type": "address"
-					}
-				],
-				"name": "nonces",
-				"outputs": [
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "tokenId",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
 					}
 				],
-				"stateMutability": "view",
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -474,7 +287,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "_tokenId",
 						"type": "uint256"
 					}
 				],
@@ -484,26 +297,6 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "pause",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "paused",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -538,17 +331,17 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "from",
+						"name": "_from",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "_to",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "_tokenId",
 						"type": "uint256"
 					}
 				],
@@ -561,22 +354,22 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "from",
+						"name": "_from",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "_to",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "_tokenId",
 						"type": "uint256"
 					},
 					{
 						"internalType": "bytes",
-						"name": "data",
+						"name": "_data",
 						"type": "bytes"
 					}
 				],
@@ -589,12 +382,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "operator",
+						"name": "_operator",
 						"type": "address"
 					},
 					{
 						"internalType": "bool",
-						"name": "approved",
+						"name": "_approved",
 						"type": "bool"
 					}
 				],
@@ -639,7 +432,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "index",
+						"name": "_index",
 						"type": "uint256"
 					}
 				],
@@ -658,12 +451,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "owner",
+						"name": "_owner",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "index",
+						"name": "_index",
 						"type": "uint256"
 					}
 				],
@@ -714,17 +507,17 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "from",
+						"name": "_from",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "_to",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "_tokenId",
 						"type": "uint256"
 					}
 				],
@@ -745,102 +538,36 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "unlock1stPublicRound",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "unpause",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
+			"events": {
+				"Approval(address,address,uint256)": {
+					"details": "Emitted when `owner` enables `approved` to manage the `tokenId` token."
+				},
+				"ApprovalForAll(address,address,bool)": {
+					"details": "Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets."
+				},
+				"Transfer(address,address,uint256)": {
+					"details": "Emitted when `tokenId` token is transferred from `from` to `to`."
+				}
+			},
 			"kind": "dev",
 			"methods": {
-				"DOMAIN_SEPARATOR()": {
-					"details": "Returns the contract's {EIP712} domain separator."
-				},
-				"approve(address,uint256)": {
-					"details": "See {IERC721-approve}."
-				},
 				"balanceOf(address)": {
-					"details": "See {IERC721-balanceOf}."
-				},
-				"burn(uint256)": {
-					"details": "Burns `tokenId`. See {ERC721-_burn}. Requirements: - The caller must own `tokenId` or be an approved operator."
-				},
-				"delegate(address)": {
-					"details": "Delegates votes from the sender to `delegatee`."
-				},
-				"delegateBySig(address,uint256,uint256,uint8,bytes32,bytes32)": {
-					"details": "Delegates votes from signer to `delegatee`."
-				},
-				"delegates(address)": {
-					"details": "Returns the delegate that `account` has chosen."
-				},
-				"getApproved(uint256)": {
-					"details": "See {IERC721-getApproved}."
-				},
-				"getPastTotalSupply(uint256)": {
-					"details": "Returns the total supply of votes available at the end of a past block (`blockNumber`). NOTE: This value is the sum of all available votes, which is not necessarily the sum of all delegated votes. Votes that have not been delegated are still part of total supply, even though they would not participate in a vote. Requirements: - `blockNumber` must have been already mined"
-				},
-				"getPastVotes(address,uint256)": {
-					"details": "Returns the amount of votes that `account` had at the end of a past block (`blockNumber`). Requirements: - `blockNumber` must have been already mined"
-				},
-				"getVotes(address)": {
-					"details": "Returns the current amount of votes that `account` has."
-				},
-				"isApprovedForAll(address,address)": {
-					"details": "See {IERC721-isApprovedForAll}."
-				},
-				"name()": {
-					"details": "See {IERC721Metadata-name}."
-				},
-				"nonces(address)": {
-					"details": "Returns an address nonce."
+					"details": "Returns the number of tokens in ``owner``'s account."
 				},
 				"owner()": {
 					"details": "Returns the address of the current owner."
 				},
-				"ownerOf(uint256)": {
-					"details": "See {IERC721-ownerOf}."
-				},
-				"paused()": {
-					"details": "Returns true if the contract is paused, and false otherwise."
-				},
 				"renounceOwnership()": {
 					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
 				},
-				"safeTransferFrom(address,address,uint256)": {
-					"details": "See {IERC721-safeTransferFrom}."
-				},
-				"safeTransferFrom(address,address,uint256,bytes)": {
-					"details": "See {IERC721-safeTransferFrom}."
-				},
-				"setApprovalForAll(address,bool)": {
-					"details": "See {IERC721-setApprovalForAll}."
-				},
-				"symbol()": {
-					"details": "See {IERC721Metadata-symbol}."
-				},
-				"tokenByIndex(uint256)": {
-					"details": "See {IERC721Enumerable-tokenByIndex}."
-				},
-				"tokenOfOwnerByIndex(address,uint256)": {
-					"details": "See {IERC721Enumerable-tokenOfOwnerByIndex}."
+				"supportsInterface(bytes4)": {
+					"details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
 				},
 				"totalSupply()": {
-					"details": "See {IERC721Enumerable-totalSupply}."
-				},
-				"transferFrom(address,address,uint256)": {
-					"details": "See {IERC721-transferFrom}."
+					"details": "Returns the total amount of tokens stored by the contract."
 				},
 				"transferOwnership(address)": {
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
@@ -856,9 +583,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"DoANFT.sol": "DoA"
+			"DoAProxy.sol": "DoAProxy"
 		},
-		"evmVersion": "berlin",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -878,28 +605,20 @@
 				"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
 			]
 		},
-		"@openzeppelin/contracts/governance/utils/IVotes.sol": {
-			"keccak256": "0xf5324a55ee9c0b4a840ea57c055ac9d046f88986ceef567e1cf68113e46a79c0",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://f41fe2bddc33c17ccccfc25379b1869354e9ee62d8b28d2acc95229eeba37a86",
-				"dweb:/ipfs/Qmb6SF2XL2uSvH6k5JSjtx4Xoqz41ACkhdAhtbW1Yh3RiY"
-			]
-		},
-		"@openzeppelin/contracts/governance/utils/Votes.sol": {
-			"keccak256": "0xbf868a3a3cd497eb5896303474d25b9b5fe487ba30391db0a3e5b950573498d7",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://463a8a3be23b60a30f621c275c3195740501dc69a202b8364b383b5dc5470f0d",
-				"dweb:/ipfs/Qma8bNQEtBeoG1N2tqiPN6dYPbp3S4WGN6eBXAopjYEPjV"
-			]
-		},
 		"@openzeppelin/contracts/security/Pausable.sol": {
 			"keccak256": "0x0849d93b16c9940beb286a7864ed02724b248b93e0d80ef6355af5ef15c64773",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://4ddabb16009cd17eaca3143feadf450ac13e72919ebe2ca50e00f61cb78bc004",
 				"dweb:/ipfs/QmSPwPxX7d6TTWakN5jy5wsaGkS1y9TW8fuhGSraMkLk2B"
+			]
+		},
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0x190dd6f8d592b7e4e930feb7f4313aeb8e1c4ad3154c27ce1cf6a512fc30d8cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ce8dfb62d0c4fa260d6eec8f1cd47f5f2a044e11bde5b31d18072fa6e7d9010",
+				"dweb:/ipfs/QmTyFztU3tLEcEDnqqiaW4UJetqsU77LXc6pjc9oTXCK5u"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/ERC721.sol": {
@@ -950,14 +669,6 @@
 				"dweb:/ipfs/QmUeFDffQRDmX87FX3MRxN3bmpUxDTWpWLwPJzeAJ3yF6H"
 			]
 		},
-		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Votes.sol": {
-			"keccak256": "0x19cf96045e935b99fe8fc15018af1d74203ad6ae1b301b950da4e90ddec05f50",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://6233da69d82699c102aa28e6f63ff2935655918ce8f44ae555185be73a1a3fbd",
-				"dweb:/ipfs/QmPc2QL2xWY3UsbmAKV3KWREXU4omp3dodW6hSpzdMiqFC"
-			]
-		},
 		"@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol": {
 			"keccak256": "0xd1556954440b31c97a142c6ba07d5cade45f96fafd52091d33a14ebe365aecbf",
 			"license": "MIT",
@@ -974,28 +685,12 @@
 				"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf"
 			]
 		},
-		"@openzeppelin/contracts/token/ERC721/extensions/draft-ERC721Votes.sol": {
-			"keccak256": "0x73fda7d6b96b657acbf36817a64ad875a601747798725b0aa68f8652f72dbe29",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://0779655d6b2a1f83a8624a65139410525890fa6320f1bf84e2593ba255b9ef81",
-				"dweb:/ipfs/QmPDn1wdShJxaHUk3WQC2jD5drWoCerHoknTGNV6v1vA2T"
-			]
-		},
 		"@openzeppelin/contracts/utils/Address.sol": {
 			"keccak256": "0xf96f969e24029d43d0df89e59d365f277021dac62b48e1c1e3ebe0acdd7f1ca1",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://ec772b45a624be516f1c81970caa8a2e144301e9d0921cbc1a2789fef39a1269",
 				"dweb:/ipfs/QmNyjwxCrGhQMyzLD93oUobJXVe9ceJvRvfXwbEtuxPiEj"
-			]
-		},
-		"@openzeppelin/contracts/utils/Checkpoints.sol": {
-			"keccak256": "0xf586981d605e0c0f07a44e158a3da023bd526409d3709e969d323b2d91398078",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://df93b9e4731d4e904a7216af640c5ec0a4ef5f87051fedc2a272b3b3039f1247",
-				"dweb:/ipfs/QmYvPqBpuZXxnedpn1vAMuHfustou2hByanL8zRA3qm3ob"
 			]
 		},
 		"@openzeppelin/contracts/utils/Context.sol": {
@@ -1022,30 +717,6 @@
 				"dweb:/ipfs/QmVhVa6LGuzAcB8qgDtVHRkucn4ihj5UZr8xBLcJkP6ucb"
 			]
 		},
-		"@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
-			"keccak256": "0xda898fa084aa1ddfdb346e6a40459e00a59d87071cce7c315a46d648dd71d0ba",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://ce501a941f4aa1555c04dabb5e07992503bb6a9b32ff8f7cdcefdb4a742210cb",
-				"dweb:/ipfs/QmeScPrUpdrGYs9BytV3Z5ZWJcBXtuAgCW4BLHua4xFUxx"
-			]
-		},
-		"@openzeppelin/contracts/utils/cryptography/EIP712.sol": {
-			"keccak256": "0x948d8b2d18f38141ec78c5229d770d950ebc781ed3f44cc9e3ccbb9fded5846a",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://7311ac950ed2d81f3ccf1784a926efbfc82a86dcb5c98d41eb3792c0cac63a2f",
-				"dweb:/ipfs/QmRRwCUHewkPmehx8QRYENFoWyLNx8UEZGULxWYUeSZdTS"
-			]
-		},
-		"@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol": {
-			"keccak256": "0xea30c402170bc240354b74e6c6f6a8e5bdb1935d90d168cc58c0654461c6a72b",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://95cbddf89006e6dbbc200eb091eb90025c97a9980310f2325c9bda2c4fdc97e3",
-				"dweb:/ipfs/QmT67Dt3xrKEQSDC4XyDcrKwZUYsJzddrRFjEopRZNP9yR"
-			]
-		},
 		"@openzeppelin/contracts/utils/introspection/ERC165.sol": {
 			"keccak256": "0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b",
 			"license": "MIT",
@@ -1070,20 +741,52 @@
 				"dweb:/ipfs/Qmct36zWXv3j7LZB83uwbg7TXwnZSN1fqHNDZ93GG98bGz"
 			]
 		},
-		"@openzeppelin/contracts/utils/math/SafeCast.sol": {
-			"keccak256": "0x52a8cfb0f5239d11b457dcdd1b326992ef672714ca8da71a157255bddd13f3ad",
+		"DoACollection.sol": {
+			"keccak256": "0x74f74c16b114cf52fa620b5f369f216024098375ecb7aab3c32dd7e4097ee510",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://495145362c7ff1c9ca88c58bbbbcb412e3c2004406647412394486552ff6c278",
-				"dweb:/ipfs/QmNNCeng6d5eRPDn6tkWSQhjE39XWfQEfjA63rRwHmr1iH"
+				"bzz-raw://f3005472b75d75486ab03efb33ca7de3488836ff8a71fc525bf58d43327810c3",
+				"dweb:/ipfs/QmP3Rqv1azLkpguCR76qUuGHQmhP5V6v6ynWdfZ5f1b9x4"
 			]
 		},
-		"DoANFT.sol": {
-			"keccak256": "0x6d09504e620e371edf3c58c3fa1e0aa8eb0591330a5d16e7e5279c73ab1951c6",
+		"DoAProxy.sol": {
+			"keccak256": "0x089861621f8c2b42ca01ca205a460471d5313e97eaef3237ab396797a0fb438b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://20e721b24c24b4bc209268e88a4f3757dd2247e8902e0f6ed58451c25d9ba5a8",
-				"dweb:/ipfs/QmfMhnvfemVesr5EQCjxzY3Z8JBcziMAZmCDXs8rffyMkR"
+				"bzz-raw://c26b49eb34f9f25876534e69ec26a00fcf56c9bb9b7b39c478f6684851e4b7f9",
+				"dweb:/ipfs/QmPFq6Zak8nT6JuDzq8n7ykyQdPKZXtM7zi2eK97EBL7Fx"
+			]
+		},
+		"TokenMinter.sol": {
+			"keccak256": "0x1281ccd57b8a607f93bb800fe9b4ca11017ee8afc4546d084e805aec1982e752",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ffc78c805c45a12822eb7b0300afb4fae03c60f9fc35851a542f2b3814a0d9f0",
+				"dweb:/ipfs/QmfB8xrJ243w14CbVzwZnf7mPrp2gfP2YbBHm9jZUdy1C4"
+			]
+		},
+		"iDoACollection.sol": {
+			"keccak256": "0xec80422cb3cee97963c26885c29d8986941fe66822f8382fbeec71d52a74575e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://25cf1b43f50e71283e17b70c3341d077d9f8397c65027a839a77e3b17ff08af6",
+				"dweb:/ipfs/QmUri3HJcrprJM2zTNXb8Dcws36D328jUK3Zb4JAbzZ1kf"
+			]
+		},
+		"iDoAProxy.sol": {
+			"keccak256": "0xb920fd90ea5737f4673d07ccbf71d0c51b67d1e8e9dbf4d297e1de20ef2709a5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://48d1999b79d9298797f660ea5dadfd8653da50fa468e4fc7cb73cfb3660231bd",
+				"dweb:/ipfs/QmRDkFL1wRHDj8MUxNngszRtTRV4Ufs2W2XgZ4XkJ8GzCZ"
+			]
+		},
+		"iTokenMinter.sol": {
+			"keccak256": "0x7be87dd799737ba9232d7612c3284b8a0ae3eff50d7dba460b2d525c142a381b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ee171580d110a6e2e88cdfdd201cae72d258fab4f862d34168e96a4a0171a785",
+				"dweb:/ipfs/QmbLSubXt8RbnP3HcimL1XuL54S5fdE6GA4wti3WG9CaxE"
 			]
 		}
 	},
