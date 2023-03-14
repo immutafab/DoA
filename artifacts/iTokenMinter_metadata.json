@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "mintHeros",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "doaProxy",
+						"type": "address"
+					}
+				],
+				"name": "setDoAProxy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"iTokenMinter.sol": "iTokenMinter"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"iTokenMinter.sol": {
+			"keccak256": "0x6bb7c642a4d8e06335932efcc79c31db56438b3d99a9c1c61fc8aefde0ea771b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0902599b81443cbe956154018e372af1fe86647c23e13fbf472e9388d0c19d7c",
+				"dweb:/ipfs/QmU6EZxtvSt6m4HhNFmiam5VC2FTR7wk9uKEDD5pqJxC1A"
+			]
+		}
+	},
+	"version": 1
+}

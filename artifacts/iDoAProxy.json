@@ -49,20 +49,21 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"addAuthorizedContract(address)": "98eaa4a7",
 			"approve(address,uint256)": "095ea7b3",
 			"balanceOf(address)": "70a08231",
 			"batchBurn(uint256[])": "dc8e92ea",
 			"burn(uint256)": "42966c68",
 			"getApproved(uint256)": "081812fc",
 			"isApprovedForAll(address,address)": "e985e9c5",
+			"mintHeros(address)": "329cc83f",
 			"name()": "06fdde03",
 			"ownerOf(uint256)": "6352211e",
-			"safeBatchMint(address,string[])": "58dd6d95",
 			"safeMint(address,string)": "d204c45e",
 			"safeTransferFrom(address,address,uint256)": "42842e0e",
 			"safeTransferFrom(address,address,uint256,bytes)": "b88d4fde",
 			"setApprovalForAll(address,bool)": "a22cb465",
+			"setDoAProxy(address)": "7e88be60",
+			"setTokenURI(uint256,string)": "162094c4",
 			"supportsInterface(bytes4)": "01ffc9a7",
 			"symbol()": "95d89b41",
 			"tokenByIndex(uint256)": "4f6ccce7",
@@ -147,19 +148,6 @@
 			],
 			"name": "Transfer",
 			"type": "event"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "contractAddress",
-					"type": "address"
-				}
-			],
-			"name": "addAuthorizedContract",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
 		},
 		{
 			"inputs": [
@@ -268,6 +256,19 @@
 			"type": "function"
 		},
 		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				}
+			],
+			"name": "mintHeros",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
 			"inputs": [],
 			"name": "name",
 			"outputs": [
@@ -297,24 +298,6 @@
 				}
 			],
 			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "to",
-					"type": "address"
-				},
-				{
-					"internalType": "string[]",
-					"name": "uris",
-					"type": "string[]"
-				}
-			],
-			"name": "safeBatchMint",
-			"outputs": [],
-			"stateMutability": "nonpayable",
 			"type": "function"
 		},
 		{
@@ -400,6 +383,37 @@
 				}
 			],
 			"name": "setApprovalForAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "doaCollection",
+					"type": "address"
+				}
+			],
+			"name": "setDoAProxy",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "uri",
+					"type": "string"
+				}
+			],
+			"name": "setTokenURI",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

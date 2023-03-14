@@ -84,6 +84,19 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "addAuthorizedContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_approved",
 						"type": "address"
 					},
@@ -188,13 +201,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "mintHeros",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "name",
 				"outputs": [
 					{
@@ -223,6 +229,42 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "string[]",
+						"name": "uris",
+						"type": "string[]"
+					}
+				],
+				"name": "safeBatchMint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "uri",
+						"type": "string"
+					}
+				],
+				"name": "safeMint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -506,11 +548,11 @@
 			]
 		},
 		"iDoACollection.sol": {
-			"keccak256": "0xf7dbf6369be6ae1774c8d93bcd47205f7c9970048dfd1374f14861e5f44ca522",
+			"keccak256": "0x247d89dc2c93d21f10df604e5ec0840b7fac1a2964bb1e78b9c82dc92d3603a1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://382d26edc5ede2f8a78d7e76ebdeb745536b6a6156b5416df9f9921fc9f1b26b",
-				"dweb:/ipfs/Qmb4xoLgo1hKnnMqcS8yEitBp2yaBek6FBk4FMh8i1zrU9"
+				"bzz-raw://3c8a983cc2d0f30e100635de10a7c9466e7541a36ea552645e9159a1876ae2b4",
+				"dweb:/ipfs/QmSgXfp7UqERMBG21dStp1QVEajmvUFg3kxWVDMe7KeZ8i"
 			]
 		}
 	},

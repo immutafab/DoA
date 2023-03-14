@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "doaProxyAddr",
+						"name": "doaCollectionAddress",
 						"type": "address"
 					}
 				],
@@ -65,7 +65,20 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "addAuthorizedContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "toAddr",
 						"type": "address"
 					}
 				],
@@ -239,6 +252,22 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
+		"@openzeppelin/contracts/utils/Counters.sol": {
+			"keccak256": "0xf0018c2440fbe238dd3a8732fa8e17a0f9dce84d31451dc8a32f6d62b349c9f1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://59e1c62884d55b70f3ae5432b44bb3166ad71ae3acd19c57ab6ddc3c87c325ee",
+				"dweb:/ipfs/QmezuXg5GK5oeA4F91EZhozBFekhq5TD966bHPH18cCqhu"
+			]
+		},
+		"@openzeppelin/contracts/utils/Strings.sol": {
+			"keccak256": "0xa4d1d62251f8574deb032a35fc948386a9b4de74b812d4f545a1ac120486b48a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8c969013129ba9e651a20735ef659fef6d8a1139ea3607bd4b26ddea2d645634",
+				"dweb:/ipfs/QmVhVa6LGuzAcB8qgDtVHRkucn4ihj5UZr8xBLcJkP6ucb"
+			]
+		},
 		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
 			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
 			"license": "MIT",
@@ -247,28 +276,44 @@
 				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
 			]
 		},
-		"TokenMinter.sol": {
-			"keccak256": "0x011c88a277f45992ca0c6ff181be91a24457525efaaba3577a1d131d1bfe4c93",
+		"@openzeppelin/contracts/utils/math/Math.sol": {
+			"keccak256": "0xa1e8e83cd0087785df04ac79fb395d9f3684caeaf973d9e2c71caef723a3a5d6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://baece755c62b01f57a67376f7a665f485b1567af8dc4a692ec3155a1db6076ab",
-				"dweb:/ipfs/QmTNrgWeVzcD5aJqNa9aT8VQPK3btsPmbXzTBZ5KgB8sLY"
+				"bzz-raw://33bbf48cc069be677705037ba7520c22b1b622c23b33e1a71495f2d36549d40b",
+				"dweb:/ipfs/Qmct36zWXv3j7LZB83uwbg7TXwnZSN1fqHNDZ93GG98bGz"
+			]
+		},
+		"DoAConstants.sol": {
+			"keccak256": "0x9133a6d85c80edff50752258329409bbd93ea59440f825a0420278dcdb5e87a7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6653357af1acb9cf343d6fb676886cb383ba4eadf54912fa8ceadcd22f849645",
+				"dweb:/ipfs/QmXJLfk4w5keffgVotTNMGtEpuSYuuWB2obAcPawx88kXw"
+			]
+		},
+		"TokenMinter.sol": {
+			"keccak256": "0x6ca40ec882e9892c09b1b8379cd01add5368882e78ee2f468e8be6aa7f4d8a7b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://38c0dbc7d23e8a0eda6dc1e36cf1cfc0d8af0a52f5190dbdc55776f0173d45a5",
+				"dweb:/ipfs/QmRgvHXm6tQ7sumLVj63GQjBfkskz3fxCFjztEV1jyPeqH"
 			]
 		},
 		"iDoACollection.sol": {
-			"keccak256": "0xec80422cb3cee97963c26885c29d8986941fe66822f8382fbeec71d52a74575e",
+			"keccak256": "0x94ca00cedb56fe87bc4c881cae189fd63218e10acf94ddc1dfa56a6f709e5b88",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://25cf1b43f50e71283e17b70c3341d077d9f8397c65027a839a77e3b17ff08af6",
-				"dweb:/ipfs/QmUri3HJcrprJM2zTNXb8Dcws36D328jUK3Zb4JAbzZ1kf"
+				"bzz-raw://d2b9f3e7bb56d6d65a1ed7f36b7503e1fc56125758bbd1dc202a1351b21ccf67",
+				"dweb:/ipfs/QmTk9twWBkENm6M37kRiAEBmhAhGb7zCnbVroXHQatmDvq"
 			]
 		},
 		"iTokenMinter.sol": {
-			"keccak256": "0x7be87dd799737ba9232d7612c3284b8a0ae3eff50d7dba460b2d525c142a381b",
+			"keccak256": "0xbe2cb55b88f73e1c7e88e1ac4c1567083e770d1062c5ba4d3ba8b114b62c8f19",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ee171580d110a6e2e88cdfdd201cae72d258fab4f862d34168e96a4a0171a785",
-				"dweb:/ipfs/QmbLSubXt8RbnP3HcimL1XuL54S5fdE6GA4wti3WG9CaxE"
+				"bzz-raw://fa74ef5816025118552852511eee50d0a5de1fae484854d66434fca5fee7eef9",
+				"dweb:/ipfs/QmYxsHSNBDFnaUrNDJpBvQVjyKwfAY4hhjjjiHYHeMHmdo"
 			]
 		}
 	},

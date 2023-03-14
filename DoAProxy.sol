@@ -21,10 +21,12 @@ contract DoAProxy is iDoAProxy, Ownable {
     //--------------------------------------------------------------------------------
     // Constructor
     //--------------------------------------------------------------------------------
-    constructor() {
-        _doaCollection = iDoACollection(address(new DoACollection(address(this))));
-        _tokenMinter = iTokenMinter(new TokenMinter(address(this)));
+    
+    constructor (address doaCollection, address tokenMinter) {
+        _doaCollection = iDoACollection(doaCollection);
+        _tokenMinter = iTokenMinter(tokenMinter);
     }
+
 
 
     //------------------------------------------------------------------------------------
@@ -108,8 +110,7 @@ contract DoAProxy is iDoAProxy, Ownable {
     //------------------------------------------------------------------------------------
     // Functions: DoA Functions
     //------------------------------------------------------------------------------------
-    function safeMint(address to, string memory uri) external override
-    {
+    function safeMint(address to, string memory uri) external {
         _doaCollection.safeMint(to, uri);
     }
 

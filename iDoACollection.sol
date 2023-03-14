@@ -7,15 +7,18 @@ import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
 
 
-interface iDoACollection is IERC721, IERC721Enumerable {
+interface iDoACollection is IERC721, IERC721Enumerable, IERC721Metadata {
 
     
     //------------------------------------------------------------------------------------
-    // DoA Collection
+    // DoA Specific
     //------------------------------------------------------------------------------------
-    
+
+    function addAuthorizedContract(address contractAddress) external;
+
     function safeMint(address to, string memory uri) external;
 
+    function safeBatchMint(address to, uint256[] memory tokenIds) external;
 
     //------------------------------------------------------------------------------------
     // IERC721
@@ -65,6 +68,8 @@ interface iDoACollection is IERC721, IERC721Enumerable {
 
     //the number of tokens owned by the address
     function balanceOf(address owner) external view returns (uint256 balance);
+
+
 
     //------------------------------------------------------------------------------------
     // IERC721 Enumerable

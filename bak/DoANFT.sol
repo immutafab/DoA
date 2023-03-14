@@ -28,9 +28,6 @@ contract DoA is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Ownable, E
     }
 
 
-    //--------------------------------------------------------------------------------
-    //  Constants
-    //--------------------------------------------------------------------------------
     //fund distribution
     uint256 constant PUBLIC_FUND_PERCENTAGE = 60; //60%
     uint256 constant PRIVATE_FUND_PERCENTAGE = 40; //40%
