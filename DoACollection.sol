@@ -18,14 +18,12 @@ import "./DoAConstants.sol";
 
 
 contract DoACollection is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, Pausable, Ownable {
-    using Counters for Counters.Counter;
     using Strings for uint256;
     
 
     //--------------------------------------------------------------------------------
     //  State Variables
-    //--------------------------------------------------------------------------------
-    Counters.Counter private _tokenIdCounter;
+    //-------------------------------------------------------------------------------- 
     mapping(address => bool) private _authorizedContracts;
 
 
@@ -92,51 +90,85 @@ contract DoACollection is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burn
     }
 
     
-    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory uri) {
         _requireMinted(tokenId);
 
         string memory baseURI = _baseURI();
         string memory baseClassURI;
 
-        if (tokenId >= DoAConstants.HERO_NFT_START_INDEX && tokenId < DoAConstants.LEGEND_NFT_START_INDEX) {
+        NFT_CLASS tokenClass = DoAConstants.getClassForTokenId(tokenId);
+
+        if (tokenClass == NFT_CLASS.HERO) {
             baseClassURI = DoAConstants.BASE_HERO_URI;
-
-        } else if (tokenId >= DoAConstants.LEGEND_NFT_START_INDEX && tokenId < DoAConstants.RARE_NFT_START_INDEX) {
+        } else if (tokenClass == NFT_CLASS.LEGEND) {
             baseClassURI = DoAConstants.BASE_LEGEND_URI;
-
-        } else if (tokenId >= DoAConstants.RARE_NFT_START_INDEX && tokenId < DoAConstants.UNCOMMON_START_INDEX) {
+        } else if (tokenClass == NFT_CLASS.RARE) {
             baseClassURI = DoAConstants.BASE_RARE_URI;
-
-        } else if (tokenId >= DoAConstants.UNCOMMON_START_INDEX && tokenId < DoAConstants.COMMON_START_INDEX) {
+        } else if(tokenClass == NFT_CLASS.UNCOMMON) {
             baseClassURI = DoAConstants.BASE_UNCOMMON_URI;
-
-        } else if (tokenId >= DoAConstants.COMMON_START_INDEX) {
+        } else if (tokenClass == NFT_CLASS.COMMON) {
             baseClassURI = DoAConstants.BASE_COMMON_URI;
-
         } else {
-            revert("Invalid tokenId");
+            revert("Invalid Class");
         }
 
-        return string(abi.encodePacked(baseURI, baseClassURI, "/", tokenId.toString(), ".json"));
+        uri = string(abi.encodePacked(
+            baseURI, 
+            baseClassURI, 
+            "/", 
+            tokenId.toString(), 
+            ".json"));
     }
 
 
+    //mint next 1 token
     function safeMint(address to) external {
-        //require(_authorizedContracts[msg.sender], "No Auth");
+        //TODO require(_authorizedContracts[msg.sender], "No Auth");
 
-        uint256 tokenId = _tokenIdCounter.current();
-        _tokenIdCounter.increment();
-        _safeMint(to, tokenId);
+        _safeMint(to, totalSupply());
+    }
+
+    //mint specific token
+    function safeMint(address to, uint256 tokenID) external {
+        //TODO require(_authorizedContracts[msg.sender], "No Auth");
+
+        _safeMint(to, tokenID);
     }
 
 
-    function safeBatchMint(address to, uint256[] memory tokenIds) external {
-        //require(_authorizedContracts[msg.sender], "No Auth");
+    //mint next X tokens
+    function safeBatchMint(address to, uint256 tokensToMint) external {
+        //TODO require(_authorizedContracts[msg.sender], "No Auth");
         
-        for (uint256 i = 0; i < tokenIds.length; i++) {
-            _safeMint(to, tokenIds[i]);
+        uint256 currentIndex = totalSupply();
+
+        for (uint256 i = 0; i <= tokensToMint - 1; i++) {
+            _safeMint(to, currentIndex + i);
         }
     }
     
     
+    //------------------------------------------------------------------------------------
+    // Utility Functions
+    //------------------------------------------------------------------------------------
+
+     // Returns NFT class for given token ID
+    /*function getClassForTokenId(uint256 tokenId) public pure returns (NFT_CLASS tokenClass) {
+        
+        if (tokenId >= DoAConstants.HERO_NFT_START_INDEX && tokenId < DoAConstants.LEGEND_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.HERO;
+        } else if (tokenId >= DoAConstants.LEGEND_NFT_START_INDEX && tokenId < DoAConstants.RARE_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.LEGEND;
+        } else if (tokenId >= DoAConstants.RARE_NFT_START_INDEX && tokenId < DoAConstants.UNCOMMON_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.RARE;
+        } else if (tokenId >= DoAConstants.UNCOMMON_NFT_START_INDEX && tokenId < DoAConstants.COMMON_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.UNCOMMON;
+        } else if (tokenId >= DoAConstants.COMMON_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.COMMON;
+        } else {
+            revert("Invalid token ID");
+        }
+
+        return tokenClass;
+    } */
 }

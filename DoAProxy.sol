@@ -110,12 +110,56 @@ contract DoAProxy is iDoAProxy, Ownable {
     //------------------------------------------------------------------------------------
     // Functions: DoA Functions
     //------------------------------------------------------------------------------------
-    function safeMint(address to, string memory uri) external {
-        _doaCollection.safeMint(to, uri);
+    function safeMint(address, uint256) pure external {
+        revert("call TokenMinter");
+    }
+
+    function safeBatchMint(address, uint256) pure external {
+        revert("call TokenMinter");
+    }
+
+    function safeMint(address) pure external {
+        revert("call TokenMinter");
     }
 
 
     function mintHeros(address to) external {
         _tokenMinter.mintHeros(to);
     }
+
+
+    function mintLegend(address to) external payable {
+        _tokenMinter.mintLegend(to);
+    }
+
+    function mintRare(address to) external payable {
+        _tokenMinter.mintRare(to);
+    }
+
+    function mintUncommon(address to) external payable {
+        _tokenMinter.mintUncommon(to);
+    }
+
+    function mintCommon(address to) external payable {
+        _tokenMinter.mintCommon(to);
+    }
+
+    function mintLegends(address to, uint256 numToMint) external payable {
+        _tokenMinter.mintLegends(to, numToMint);
+    }
+
+    function mintRares(address to, uint256 numToMint) external payable {
+        _tokenMinter.mintRares(to, numToMint);
+    }
+
+    function mintUncommons(address to, uint256 numToMint) external payable {
+        _tokenMinter.mintUncommons(to, numToMint);
+    }
+
+    function mintCommons(address to, uint256 numToMint) external payable {
+        _tokenMinter.mintCommons(to, numToMint);
+    }
+
+
+
 }

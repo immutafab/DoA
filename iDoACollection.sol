@@ -14,11 +14,11 @@ interface iDoACollection is IERC721, IERC721Enumerable, IERC721Metadata {
     // DoA Specific
     //------------------------------------------------------------------------------------
 
-    function addAuthorizedContract(address contractAddress) external;
+    function safeMint(address to) external;
 
-    function safeMint(address to, string memory uri) external;
+    function safeMint(address to, uint256 tokenID) external;
 
-    function safeBatchMint(address to, uint256[] memory tokenIds) external;
+    function safeBatchMint(address to, uint256 tokensToMint) external;
 
     //------------------------------------------------------------------------------------
     // IERC721

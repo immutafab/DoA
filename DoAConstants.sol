@@ -5,12 +5,12 @@ pragma solidity ^0.8.19;
 //--------------------------------------------------------------------------------
 //  Enums
 //--------------------------------------------------------------------------------
-enum NFT_TYPE {
-    Hero,
-    Legend,
-    Rare,
-    Uncommon,
-    Common
+enum NFT_CLASS {
+    HERO,
+    LEGEND,
+    RARE,
+    UNCOMMON,
+    COMMON
 }
 
 
@@ -61,8 +61,8 @@ library DoAConstants {
     uint16 public constant HERO_NFT_START_INDEX = 0;
     uint16 public constant LEGEND_NFT_START_INDEX = 25;
     uint16 public constant RARE_NFT_START_INDEX = 126;
-    uint16 public constant UNCOMMON_START_INDEX = 627;
-    uint16 public constant COMMON_START_INDEX = 3128;
+    uint16 public constant UNCOMMON_NFT_START_INDEX = 627;
+    uint16 public constant COMMON_NFT_START_INDEX = 3128;
 
 
 
@@ -90,7 +90,54 @@ library DoAConstants {
     string public constant BASE_UNCOMMON_URI = "/uncommon/metadata";
     string public constant BASE_COMMON_URI = "/common/metadata";
 
+    
+    //--------------------------------------------------------------------------------
+    // Treasury
+    //--------------------------------------------------------------------------------
+    uint8 public constant PUBLIC_FUND_PERCENTAGE = 60;
 
 
+    
+    // Returns NFT class for given token ID
+    function getClassForTokenId(uint256 tokenId) public pure returns (NFT_CLASS tokenClass) {
+        
+        if (tokenId >= DoAConstants.HERO_NFT_START_INDEX && tokenId < DoAConstants.LEGEND_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.HERO;
+        } else if (tokenId >= DoAConstants.LEGEND_NFT_START_INDEX && tokenId < DoAConstants.RARE_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.LEGEND;
+        } else if (tokenId >= DoAConstants.RARE_NFT_START_INDEX && tokenId < DoAConstants.UNCOMMON_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.RARE;
+        } else if (tokenId >= DoAConstants.UNCOMMON_NFT_START_INDEX && tokenId < DoAConstants.COMMON_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.UNCOMMON;
+        } else if (tokenId >= DoAConstants.COMMON_NFT_START_INDEX) {
+            tokenClass = NFT_CLASS.COMMON;
+        } else {
+            revert("Invalid token ID");
+        }
+
+        return tokenClass;
+    }
+
+    function getClassName(NFT_CLASS nftClass) public pure returns (string memory tokenClassName) {
+        
+        if (nftClass == NFT_CLASS.HERO) {
+            tokenClassName = "Hero";
+        } else if (nftClass == NFT_CLASS.LEGEND) {
+            tokenClassName = "Legend";
+        } else if (nftClass == NFT_CLASS.RARE) {
+            tokenClassName = "Rare";
+        } else if (nftClass == NFT_CLASS.UNCOMMON) {
+            tokenClassName = "Uncommon";
+        } else if (nftClass == NFT_CLASS.COMMON) {
+            tokenClassName = "Common";
+        } else {
+            revert("Invalid token class");
+        }
+
+    } 
+
+    function testClassForTokenId(uint256 tokenId) public pure returns (string memory className) {
+        return getClassName(getClassForTokenId(tokenId));
+    }
 
 }
