@@ -11,7 +11,7 @@ contract MemberRegistry is iMemberRegistry {
 
 
     function nftMinted(address member, uint256 tokenID, NFT_CLASS nftClass) external override {
-        
+        _memberClass[member] = nftClass;
     }
 
     function nftBurned(address member, uint256 tokenID, NFT_CLASS nftClass) external override {
