@@ -5,11 +5,11 @@ import "./DoAConstants.sol";
 
 interface iMemberRegistry {
 
-    function nftMinted(address member, uint256 tokenID) external;
-    function nftBurned(address member, uint256 tokenID) external;
+    function nftMinted(address member, uint256 tokenId) external;
+    function nftBurned(address member, uint256 tokenId) external;
     function getMemberClass(address member) external returns (NFT_CLASS);
 
-    function nftTransferred(address oldMember, address toNewMember, uint256 tokenID) external;
+    function nftTransferred(address oldMember, address toNewMember, uint256 tokenId) external;
 
 
 }
