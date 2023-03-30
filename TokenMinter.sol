@@ -228,7 +228,7 @@ contract TokenMinter is iTokenMinter, Ownable, Pausable, ReentrancyGuard {
         for(uint256 currentIndex = mintStartIndex; currentIndex <= mintEndIndex; currentIndex++) {
             
             _doaCollection.safeMint(toAddr, currentIndex);
-            _memberRegistry.nftMinted(toAddr, currentIndex);
+            _memberRegistry.nftMinted(toAddr, currentIndex, classToMint);
 
             actualMintEndIndex = currentIndex;
 
