@@ -136,6 +136,21 @@ library DoAConstants {
 
     } 
 
+
+    function getClassPrice(NFT_CLASS nftClass) public pure returns (uint256 classNFTPrice) {
+        if(nftClass == NFT_CLASS.LEGEND) 
+            classNFTPrice = DoAConstants.LEGEND_NFT_PRICE;
+        else if(nftClass == NFT_CLASS.RARE) 
+            classNFTPrice = DoAConstants.RARE_NFT_PRICE;
+        else if(nftClass == NFT_CLASS.UNCOMMON) 
+            classNFTPrice = DoAConstants.UNCOMMON_NFT_PRICE;
+        else if(nftClass == NFT_CLASS.COMMON) 
+            classNFTPrice = DoAConstants.COMMON_NFT_PRICE;
+        else revert("Invalid class");
+
+        return classNFTPrice;
+    }
+
     function testClassForTokenId(uint256 tokenId) public pure returns (string memory className) {
         return getClassName(getClassForTokenId(tokenId));
     }

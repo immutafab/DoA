@@ -488,6 +488,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "enum NFT_CLASS",
+						"name": "nftClass",
+						"type": "NFT_CLASS"
+					}
+				],
+				"name": "getClassPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "classNFTPrice",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "tokenId",
 						"type": "uint256"
@@ -533,11 +552,11 @@
 	},
 	"sources": {
 		"DoAConstants.sol": {
-			"keccak256": "0x5eb4aa67058dd955a6eb5ddab7ede0682bddf8b52faa7b4952d27eb3b10aad49",
+			"keccak256": "0x55ef434cacc5cd41d8486e375d92253c3913cdb336e50e55edcd3de5830ff473",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fc2dc90b120e859f5cb49e1557b385c179381369b5d64fe12320f609b93aa75e",
-				"dweb:/ipfs/QmZd9QUUwmZcSkVZbiHFcEyEREptaJwydzPvFxhHib8r3n"
+				"bzz-raw://0342dc7329e66b28652792f33a5d20303f17eec9f15748ff06d80a76627d513a",
+				"dweb:/ipfs/QmNTJfJi3qicRCRx1h43spbvfmkqpfJdprTiC3X8rwtNDn"
 			]
 		}
 	},

@@ -214,17 +214,7 @@ contract TokenMinter is iTokenMinter, Ownable, Pausable, ReentrancyGuard {
         require(_areHerosMinted, "Heros not minted");
 
         //require payment
-        uint256 classNFTPrice;
-        if(classToMint == NFT_CLASS.LEGEND) 
-            classNFTPrice = DoAConstants.LEGEND_NFT_PRICE;
-        else if(classToMint == NFT_CLASS.RARE) 
-            classNFTPrice = DoAConstants.RARE_NFT_PRICE;
-        else if(classToMint == NFT_CLASS.UNCOMMON) 
-            classNFTPrice = DoAConstants.UNCOMMON_NFT_PRICE;
-        else if(classToMint == NFT_CLASS.COMMON) 
-            classNFTPrice = DoAConstants.COMMON_NFT_PRICE;
-        else revert("Invalid class");
-
+        uint256 classNFTPrice = DoAConstants.getClassPrice(classToMint);
         //TODO require(msg.value >= classNFTPrice * numToMint, "Insufficient payment");
 
 
