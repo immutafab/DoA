@@ -65,7 +65,7 @@ contract MemberRegistry is iMemberRegistry {
         //TODO require(_authorizedContracts[msg.sender], "Not authorized to call this function");
 
         NFT_CLASS nftClass = DoAConstants.getNFTClass(tokenID);
-        
+
         removeNFTFromMember(oldMember, nftClass);
         addNFTToMember(toNewMember, nftClass);
     }
@@ -77,10 +77,9 @@ contract MemberRegistry is iMemberRegistry {
 
     function removeNFTFromMember(address member, NFT_CLASS nftClass) private {
         if(nftClass == NFT_CLASS.HERO) {
-            if(_heroNFTOwners[member] > 0) 
-                _heroNFTOwners[member] -= 1;
+            _heroNFTOwners[member] -= 1;
         } else if(nftClass == NFT_CLASS.LEGEND) {
-            if_legendNFTOwners[member] -= 1;
+            _legendNFTOwners[member] -= 1;
         } else if(nftClass == NFT_CLASS.RARE) {
             _rareNFTOwners[member] -= 1;
         } else if(nftClass == NFT_CLASS.UNCOMMON) {
