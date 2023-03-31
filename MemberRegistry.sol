@@ -36,33 +36,13 @@ contract MemberRegistry is iMemberRegistry {
     function nftMinted(address member, uint256 tokenId, NFT_CLASS nftClass) external override {
         //TODO require(_authorizedContracts[msg.sender], "Not authorized to call this function");
 
-        if(nftClass == NFT_CLASS.HERO) {
-            _heroNFTOwners[member] += 1;
-        } else if(nftClass == NFT_CLASS.LEGEND) {
-            _legendNFTOwners[member] += 1;
-        } else if(nftClass == NFT_CLASS.RARE) {
-            _rareNFTOwners[member] += 1;
-        } else if(nftClass == NFT_CLASS.UNCOMMON) {
-            _uncommonNFTOwners[member] += 1;
-        } else if(nftClass == NFT_CLASS.COMMON) {
-            _commonNFTOwners[member] += 1;
-        }
+        addNFTToMember(member, nftClass);
     }
 
     function nftBurned(address member, uint256 tokenId, NFT_CLASS nftClass) external override {
         //TODO require(_authorizedContracts[msg.sender], "Not authorized to call this function");
 
-        if(nftClass == NFT_CLASS.HERO) {
-            _heroNFTOwners[member] -= 1;
-        } else if(nftClass == NFT_CLASS.LEGEND) {
-            _legendNFTOwners[member] -= 1;
-        } else if(nftClass == NFT_CLASS.RARE) {
-            _rareNFTOwners[member] -= 1;
-        } else if(nftClass == NFT_CLASS.UNCOMMON) {
-            _uncommonNFTOwners[member] -= 1;
-        } else if(nftClass == NFT_CLASS.COMMON) {
-            _commonNFTOwners[member] -= 1;
-        }
+        removeNFTFromMember(member, nftClass);
     }
 
     function getMemberClass(address member) external view override returns (NFT_CLASS) {
@@ -82,6 +62,12 @@ contract MemberRegistry is iMemberRegistry {
     }
 
     function nftTransferred(address oldMember, address toNewMember, uint256 tokenID) external override {
+        //TODO require(_authorizedContracts[msg.sender], "Not authorized to call this function");
+
+        NFT_CLASS nftClass = DoAConstants.getNFTClass(tokenID);
+        
+        removeNFTFromMember(oldMember, nftClass);
+        addNFTToMember(toNewMember, nftClass);
     }
 
 
@@ -89,6 +75,34 @@ contract MemberRegistry is iMemberRegistry {
     // Utility
     //--------------------------------------------------------------------------------
 
+    function removeNFTFromMember(address member, NFT_CLASS nftClass) private {
+        if(nftClass == NFT_CLASS.HERO) {
+            if(_heroNFTOwners[member] > 0) 
+                _heroNFTOwners[member] -= 1;
+        } else if(nftClass == NFT_CLASS.LEGEND) {
+            if_legendNFTOwners[member] -= 1;
+        } else if(nftClass == NFT_CLASS.RARE) {
+            _rareNFTOwners[member] -= 1;
+        } else if(nftClass == NFT_CLASS.UNCOMMON) {
+            _uncommonNFTOwners[member] -= 1;
+        } else if(nftClass == NFT_CLASS.COMMON) {
+            _commonNFTOwners[member] -= 1;
+        } else {
+            revert("Not a member");
+        }
+    }
 
-
+    function addNFTToMember(address member, NFT_CLASS nftClass) private {
+        if(nftClass == NFT_CLASS.HERO) {
+            _heroNFTOwners[member] += 1;
+        } else if(nftClass == NFT_CLASS.LEGEND) {
+            _legendNFTOwners[member] += 1;
+        } else if(nftClass == NFT_CLASS.RARE) {
+            _rareNFTOwners[member] += 1;
+        } else if(nftClass == NFT_CLASS.UNCOMMON) {
+            _uncommonNFTOwners[member] += 1;
+        } else if(nftClass == NFT_CLASS.COMMON) {
+            _commonNFTOwners[member] += 1;
+        }
+    }
 }
