@@ -152,23 +152,5 @@ contract DoACollection is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burn
     // Utility Functions
     //------------------------------------------------------------------------------------
 
-     // Returns NFT class for given token ID
-    /*function getClassForTokenId(uint256 tokenId) public pure returns (NFT_CLASS tokenClass) {
-        
-        if (tokenId >= DoAConstants.HERO_NFT_START_INDEX && tokenId < DoAConstants.LEGEND_NFT_START_INDEX) {
-            tokenClass = NFT_CLASS.HERO;
-        } else if (tokenId >= DoAConstants.LEGEND_NFT_START_INDEX && tokenId < DoAConstants.RARE_NFT_START_INDEX) {
-            tokenClass = NFT_CLASS.LEGEND;
-        } else if (tokenId >= DoAConstants.RARE_NFT_START_INDEX && tokenId < DoAConstants.UNCOMMON_NFT_START_INDEX) {
-            tokenClass = NFT_CLASS.RARE;
-        } else if (tokenId >= DoAConstants.UNCOMMON_NFT_START_INDEX && tokenId < DoAConstants.COMMON_NFT_START_INDEX) {
-            tokenClass = NFT_CLASS.UNCOMMON;
-        } else if (tokenId >= DoAConstants.COMMON_NFT_START_INDEX) {
-            tokenClass = NFT_CLASS.COMMON;
-        } else {
-            revert("Invalid token ID");
-        }
 
-        return tokenClass;
-    } */
 }

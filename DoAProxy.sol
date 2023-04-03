@@ -9,6 +9,7 @@ import "./iDoAProxy.sol";
 import "./DoACollection.sol";
 import "./TokenMinter.sol";
 import "./iTokenMinter.sol";
+import "./iMemberRegistry.sol";
 
 
 contract DoAProxy is iDoAProxy, Ownable {
@@ -17,6 +18,7 @@ contract DoAProxy is iDoAProxy, Ownable {
     //--------------------------------------------------------------------------------
     iDoACollection private _doaCollection;
     iTokenMinter private _tokenMinter;
+    iMemberRegistry private _memberRegistry;
 
     //--------------------------------------------------------------------------------
     // Constructor
@@ -50,7 +52,10 @@ contract DoAProxy is iDoAProxy, Ownable {
     function ownerOf(uint256 _tokenId) external view returns (address) {}
 
     // Transfers ownership of an NFT from one address to another address.
-    function transferFrom(address _from, address _to, uint256 _tokenId) external {}
+    function transferFrom(address _from, address _to, uint256 _tokenId) external {
+        _doaCollection.transferFrom(_from, _to, _tokenId);
+        _memberRegistry.nftTransferred(_from, _to, _tokenId);
+    }
 
     // Gives permission to another address to transfer the given NFT.
     function approve(address _approved, uint256 _tokenId) external {}
