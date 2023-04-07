@@ -33,13 +33,13 @@ contract MemberRegistry is iMemberRegistry {
     //--------------------------------------------------------------------------------
     // DoA Functions 
     //--------------------------------------------------------------------------------
-    function nftMinted(address member, uint256 tokenId, NFT_CLASS nftClass) external override {
+    function nftMinted(address member, NFT_CLASS nftClass) external override {
         //TODO require(_authorizedContracts[msg.sender], "Not authorized to call this function");
 
         addNFTToMember(member, nftClass);
     }
 
-    function nftBurned(address member, uint256 tokenId, NFT_CLASS nftClass) external override {
+    function nftBurned(address member, NFT_CLASS nftClass) external override {
         //TODO require(_authorizedContracts[msg.sender], "Not authorized to call this function");
 
         removeNFTFromMember(member, nftClass);
@@ -64,7 +64,7 @@ contract MemberRegistry is iMemberRegistry {
     function nftTransferred(address oldMember, address toNewMember, uint256 tokenID) external override {
         //TODO require(_authorizedContracts[msg.sender], "Not authorized to call this function");
 
-        NFT_CLASS nftClass = DoAConstants.getNFTClass(tokenID);
+        NFT_CLASS nftClass = DoAConstants.getClassForTokenId(tokenID);
 
         removeNFTFromMember(oldMember, nftClass);
         addNFTToMember(toNewMember, nftClass);

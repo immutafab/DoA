@@ -824,11 +824,11 @@
 			]
 		},
 		"DoACollection.sol": {
-			"keccak256": "0x1f705643186ae63a0c5122dae866b7df1b093d10633586964f4eeafcf8589a46",
+			"keccak256": "0x34eac3e8844955f24ea825e6a309b36abc1509f9d2e0488c15aa74530e800df3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5e80aab4cbb6aa8b61048dab8329e6d26012c685fb7ec1aa3a1801dfa1d23196",
-				"dweb:/ipfs/QmWpfzgyMQaNx5pQ5jE4jfHJzHeTkhY2GKhBZ8NCJrgLj5"
+				"bzz-raw://05e8ba9f0f5cf103c1f301298ed5fa6620eff46d757ac53117b39eee8f1e6ba9",
+				"dweb:/ipfs/QmSd976SY9k1Tock4yeFxmhh4vkEKPJhYvuMDqjbPGMsJQ"
 			]
 		},
 		"DoAConstants.sol": {

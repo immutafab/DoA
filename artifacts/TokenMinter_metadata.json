@@ -587,11 +587,11 @@
 			]
 		},
 		"TokenMinter.sol": {
-			"keccak256": "0x5b14f104c1ac857fdf1e5928575d4161360f7096505f9b114523922485b25b1b",
+			"keccak256": "0x9cae96d33494991a6bb98d24c52f0d47f9ec039d313e00547c8fdd21f62380de",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c2832cd8e0a1bad717bea174c7be277bb30fcd171dff13f2980e956cbff83fc8",
-				"dweb:/ipfs/QmUpRA99MJt7Av1q7ijNEQwZmrD16TZDyjL2oE9XcbefXr"
+				"bzz-raw://dbc8238969c4eb0d2dd025d7e2b150d2ae9d956c819b06a48bcc0f892bcf454e",
+				"dweb:/ipfs/QmQovMEuUtNPgfGXjz3D3Ff8rrwV5TE6hgW8dBw5JqMDte"
 			]
 		},
 		"iDoACollection.sol": {
@@ -603,11 +603,11 @@
 			]
 		},
 		"iMemberRegistry.sol": {
-			"keccak256": "0x9d5cf94785810e5e2074d5aaf844272ac797693e19d5f07e207447fa48a75ded",
+			"keccak256": "0xf049d82683f23951fdb7d7b31e8ec2231aa5d1f1bab0a08c37d53e7034e12e1d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5542fec596bd9ec326130a2e718acb43a83fc84116fe9b40a2681d23925b3e8a",
-				"dweb:/ipfs/QmcA9kr5AzK8ajYMVejMZLxMmcMttxQ7fAKGm8udZn1239"
+				"bzz-raw://2445f4c6159c669d2f0ecc7dec7c761a5c2094b31672440ce0323e5a9c2ea6e8",
+				"dweb:/ipfs/Qmf7LEe4MPjFxxsJ2i7UVGfGQTenNV6p3BmWHQd3wDyV1X"
 			]
 		},
 		"iTokenMinter.sol": {

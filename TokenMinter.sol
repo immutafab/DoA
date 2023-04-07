@@ -214,7 +214,7 @@ contract TokenMinter is iTokenMinter, Ownable, Pausable, ReentrancyGuard {
         require(_areHerosMinted, "Heros not minted");
 
         //require payment
-        uint256 classNFTPrice = DoAConstants.getClassPrice(classToMint);
+        //TODO uint256 classNFTPrice = DoAConstants.getClassPrice(classToMint);
         //TODO require(msg.value >= classNFTPrice * numToMint, "Insufficient payment");
 
 
@@ -228,7 +228,7 @@ contract TokenMinter is iTokenMinter, Ownable, Pausable, ReentrancyGuard {
         for(uint256 currentIndex = mintStartIndex; currentIndex <= mintEndIndex; currentIndex++) {
             
             _doaCollection.safeMint(toAddr, currentIndex);
-            _memberRegistry.nftMinted(toAddr, currentIndex, classToMint);
+            _memberRegistry.nftMinted(toAddr, classToMint);
 
             actualMintEndIndex = currentIndex;
 
