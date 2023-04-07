@@ -30,6 +30,11 @@ contract Treasury is iTreasury, Ownable, Pausable, ReentrancyGuard {
     //--------------------------------------------------------------------------------
     // Constructor
     //--------------------------------------------------------------------------------
+    
+    constructor() {
+        _authorizedContracts[msg.sender] = true;
+    }
+    
     function addAuthorizedContract(address contractAddress) external  onlyOwner {
         _authorizedContracts[contractAddress] = true;
     }

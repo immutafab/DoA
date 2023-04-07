@@ -71,12 +71,7 @@ contract DoACollection is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burn
     }
 
 
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC721, ERC721Enumerable)
-        returns (bool)
-    {
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721Enumerablereturns (bool) {
         return super.supportsInterface(interfaceId);
     }
 
@@ -123,14 +118,14 @@ contract DoACollection is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burn
 
     //mint next 1 token
     function safeMint(address to) external {
-        //TODO require(_authorizedContracts[msg.sender], "No Auth");
+        require(_authorizedContracts[msg.sender], "No Auth");
 
         _safeMint(to, totalSupply());
     }
 
     //mint specific token
     function safeMint(address to, uint256 tokenID) external {
-        //TODO require(_authorizedContracts[msg.sender], "No Auth");
+        require(_authorizedContracts[msg.sender], "No Auth");
 
         _safeMint(to, tokenID);
     }
@@ -138,7 +133,7 @@ contract DoACollection is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burn
 
     //mint next X tokens
     function safeBatchMint(address to, uint256 tokensToMint) external {
-        //TODO require(_authorizedContracts[msg.sender], "No Auth");
+        require(_authorizedContracts[msg.sender], "No Auth");
         
         uint256 currentIndex = totalSupply();
 

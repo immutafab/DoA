@@ -67,8 +67,13 @@ contract TokenMinter is iTokenMinter, Ownable, Pausable, ReentrancyGuard {
 
     constructor(address doaCollectionAddress, address treasuryAddress, address memberRegistryAddress)  {
         _doaCollection = iDoACollection(doaCollectionAddress);
+        _doaCollection.setAuthorizedContract(address(this), true); 
+
         _treasury = iTreasury(treasuryAddress);
+        _treasury.addAuthorizedContract(address(this)); 
+
         _memberRegistry = iMemberRegistry(memberRegistryAddress);
+        _memberRegistry.addAuthorizedContract(address(this)); 
 
         _authorizedContracts[msg.sender] = true; //add owner as authorized contract
     }
