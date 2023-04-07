@@ -210,7 +210,7 @@ contract TokenMinter is iTokenMinter, Ownable, Pausable, ReentrancyGuard {
     }
 
 
-    function _mintNFTs(address toAddr, uint256 numToMint, NFT_CLASS classToMint) private whenNotPaused nonReentrant  returns (uint256 numMinted){ 
+    function _mintNFTs(address toAddr, uint256 numToMint, NFT_CLASS classToMint) private whenNotPaused  returns (uint256 numMinted){ 
         require(_areHerosMinted, "Heros not minted");
 
         //require payment
