@@ -50,8 +50,8 @@
 		"gasEstimates": null,
 		"methodIdentifiers": {
 			"getMemberClass(address)": "e0fe939f",
-			"nftBurned(address,uint256)": "d1f5d6cb",
-			"nftMinted(address,uint256)": "bbedd439",
+			"nftBurned(address,uint8)": "8f8ff71c",
+			"nftMinted(address,uint8)": "be1e1145",
 			"nftTransferred(address,address,uint256)": "741ca6bb"
 		}
 	},
@@ -83,9 +83,9 @@
 					"type": "address"
 				},
 				{
-					"internalType": "uint256",
-					"name": "tokenId",
-					"type": "uint256"
+					"internalType": "enum NFT_CLASS",
+					"name": "nftClasse",
+					"type": "uint8"
 				}
 			],
 			"name": "nftBurned",
@@ -101,9 +101,9 @@
 					"type": "address"
 				},
 				{
-					"internalType": "uint256",
-					"name": "tokenId",
-					"type": "uint256"
+					"internalType": "enum NFT_CLASS",
+					"name": "nftClasse",
+					"type": "uint8"
 				}
 			],
 			"name": "nftMinted",

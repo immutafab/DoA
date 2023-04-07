@@ -32,9 +32,9 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
+						"internalType": "enum NFT_CLASS",
+						"name": "nftClasse",
+						"type": "uint8"
 					}
 				],
 				"name": "nftBurned",
@@ -50,9 +50,9 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
+						"internalType": "enum NFT_CLASS",
+						"name": "nftClasse",
+						"type": "uint8"
 					}
 				],
 				"name": "nftMinted",
@@ -120,11 +120,11 @@
 			]
 		},
 		"iMemberRegistry.sol": {
-			"keccak256": "0x1c3df82c86d9996111ec392068b4d833317bec485472c8e03daf9955947346d3",
+			"keccak256": "0xf049d82683f23951fdb7d7b31e8ec2231aa5d1f1bab0a08c37d53e7034e12e1d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c77c02cdb125503f46fa0845e87c5f86b4d1ee1cf750bc5790c18eefd6011fe6",
-				"dweb:/ipfs/QmYHTLpc6FVPYuY59JZRUPtoVu7K9oqcHPuFNbkUFobmVc"
+				"bzz-raw://2445f4c6159c669d2f0ecc7dec7c761a5c2094b31672440ce0323e5a9c2ea6e8",
+				"dweb:/ipfs/Qmf7LEe4MPjFxxsJ2i7UVGfGQTenNV6p3BmWHQd3wDyV1X"
 			]
 		}
 	},
